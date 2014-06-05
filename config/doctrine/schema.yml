@@ -1,0 +1,18 @@
+Users:
+    actAs:
+        Timestampable:~
+    columns:
+      password:
+       type: string(255)
+      username:
+       type: string(255)
+       notnull: true
+
+
+Customers:
+    actAs:
+        Timestampable:~
+    columns:
+       customername:
+         type: string(255)
+         notnull: true

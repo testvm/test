@@ -1,0 +1,76 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/05-Factories
+
+prod:
+  logger:
+    class:   sfNoLogger
+    param:
+      level:   err
+      loggers: ~
+
+test:
+  storage:
+    class: sfSessionTestStorage
+    param:
+      session_path: %SF_TEST_CACHE_DIR%/sessions
+
+  response:
+    class: sfWebResponse
+    param:
+      send_http_headers: true
+
+  mailer:
+    param:
+      delivery_strategy: none
+
+  request:
+    class: sfWebRequest
+    param:
+      formats:
+       txt:  text/plain
+       js:   [application/javascript, application/x-javascript, text/javascript]
+       css:  text/css
+       json: [application/json, application/x-json]
+       xml:  [text/xml, application/xml, application/x-xml]
+
+dev:
+  mailer:
+    param:
+      delivery_strategy: none
+
+  request:
+    class: sfWebRequest
+    param:
+      formats:
+       txt:  text/plain
+       js:   [application/javascript, application/x-javascript, text/javascript]
+       css:  text/css
+       json: [application/json, application/x-json]
+       xml:  [text/xml, application/xml, application/x-xml]
+
+  response:
+    class: sfWebResponse
+    param:
+      send_http_headers: true
+
+all:
+  routing:
+    class: sfPatternRouting
+    param:
+      generate_shortest_url:            true
+      extra_parameters_as_query_string: true
+
+  view_cache_manager:
+    class: sfViewCacheManager
+    param:
+      cache_key_use_vary_headers: true
+      cache_key_use_host_name:    true
+  request:
+    class: sfWebRequest
+    param:
+      formats:
+       txt:  text/plain
+       js:   [application/javascript, application/x-javascript, text/javascript]
+       css:  text/css
+       json: [application/json, application/x-json]
+       xml:  [text/xml, application/xml, application/x-xml]
